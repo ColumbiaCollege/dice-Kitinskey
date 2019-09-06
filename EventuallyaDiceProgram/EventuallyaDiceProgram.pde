@@ -1,25 +1,30 @@
-String[] n = {"Nat 1, Yikes", "Eh", "Nat 20, Heck Yeah"};
+// Variables
+String[] n = {"Yikes", "The War is not 1", "2 the Dice Jail", "Puns for 3?", "Maybe this isn't 4 you", "High 5, it's better than nothing!", "Watch my Six", "Puns for Seven?", "Max Damage!"};
+int a;
+PImage dice;
 
+//Sets window size/background & calls the d8 png image 
 void setup() {
-  size(displayWidth, displayHeight);
+  size(500,500);
   background(255);
-  noLoop();
+  imageMode(CENTER);
+  dice = loadImage("d8.png");
+  image(dice, 250,250);
 }
 
+//prints the random string on the screen
 void draw() {
+  textAlign(CENTER);
   fill(0);
-  textSize(25);
-  // makes a spot in the memory to store a whole number, puts 
-  int a = int(random(n.length));
-  text(n[a], displayWidth/2, displayHeight/2,100,100);
-
-  // None of this actually worked, maybe it will
-  //for (int a = 0; a <5; a++) {
-  //  String n = random(a);
-  //  println(a);
-  //}
-  //for (int i = 0; i < 5; i++) {
-  //  int yikes = random(i);
-  //  println(yikes);
-  //}
+  textSize(30);
+  text(n[a],170,240, 150, 100);
 }
+
+//redraws the random string & also the background/dice
+//going to make the image a png w/ color later
+//this was the bane of my existence bc I overcomplicated it
+void mouseClicked() {
+  background(255);
+    image(dice, 250,250);
+  a = int(random(n.length));
+} 
